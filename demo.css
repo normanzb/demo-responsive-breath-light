@@ -1,0 +1,103 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: tahoma;
+}
+.strip {
+  background-color: #EFEFEF;
+  overflow: hidden;
+}
+.strip > .constraint {
+  width: 1000px;
+  max-width: 100%;
+  margin: 30px auto;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+.strip > .constraint > h1 {
+  font-size: 30px;
+  text-align: center;
+}
+.strip > .constraint > .column {
+  position: relative;
+}
+@media (max-width: 640px) {
+  .strip > .constraint > .column {
+    flex-direction: column;
+  }
+}
+.strip > .constraint > .column > .start {
+  width: 40%;
+}
+.strip > .constraint > .column > .start > p {
+  font-size: 20px;
+}
+@media (max-width: 640px) {
+  .strip > .constraint > .column > .start {
+    width: auto;
+  }
+}
+.strip > .constraint > .column > .end {
+  width: 60%;
+  box-sizing: border-box;
+  padding: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+@media (max-width: 640px) {
+  .strip > .constraint > .column > .end {
+    position: relative;
+    height: 40vh;
+    overflow: hidden;
+    width: auto;
+    margin-bottom: -30px;
+  }
+}
+.amber-box {
+  overflow: hidden;
+  position: relative;
+  width: auto;
+  border-radius: 50%;
+  box-shadow: 1vw 1vh 30px 0 rgba(0, 0, 0, 0.2);
+}
+.amber-box > img {
+  display: block;
+  max-width: 100%;
+}
+.amber-box > .slot {
+  width: 13.22%;
+  height: 13.22%;
+  background-image: url(amber-box-breathlight-off.png);
+  background-size: contain;
+  position: absolute;
+  left: 34.5%;
+  top: 10%;
+}
+.amber-box > .slot:before {
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(amber-box-breathlight-on.png);
+  background-size: contain;
+  opacity: 0;
+  animation-name: blink;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+@keyframes blink {
+  from {
+    opacity: 0;
+  }
+  20% {
+    opacity: .5;
+  }
+  40% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
